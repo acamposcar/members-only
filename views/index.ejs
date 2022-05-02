@@ -1,11 +1,77 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+<html lang="en">
+
+<%- include('./partials/head.ejs'); %>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <%- include('./partials/nav.ejs', {active: 'home' } ); %>
+
+      <div class="container-md">
+        <% if(isAuth){ %>
+          <h1>
+            New Post
+          </h1>
+          <div class="card">
+            <h4>Hello, <%= currentUser.username %>!
+            </h4>
+            <form method="POST" action="">
+
+              <%- include('./partials/form_errors.ejs', {errors: formErrors}); %>
+
+                <div class="form-group">
+                  <textarea id="content" value="" required name="content" type="text" maxlength="900"
+                    placeholder="What's going on?"></textarea>
+                </div>
+
+                <button type="submit">Create</button>
+            </form>
+          </div>
+          <% } %>
+            <% if(posts.length==0){ %>
+              <h1>Posts not found</h1>
+              <% } else{ %>
+                <h1>Last Posts</h1>
+                <div class="posts">
+                  <% posts.forEach(function(post){ %>
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="card-author">
+                          <%= post.author?.username %>
+                        </div>
+                        <div class="card-date">
+                          <%= post.formatDate %>
+                        </div>
+                        <% if(currentUser?.admin){ %>
+                          <form method="POST" action="/<%= post._id %>/delete">
+                            <button class="card-delete" type="submit">
+                              <span class="material-icons">
+                                delete_outline
+                              </span>
+                            </button>
+                          </form>
+                          <% } %>
+                      </div>
+                      <div class="card-content">
+                        <% if(isAuth) { %>
+                          <p>
+                            <%- post.content.replace(/\n/g, '<br/>' ) %>
+                          </p>
+                          <% } else { %>
+                            <p class="italic">Sign in to see the post content</p>
+                            <% } %>
+                      </div>
+
+
+
+                    </div>
+                    <% }) %>
+
+                      <% } %>
+
+
+                </div>
+
+      </div>
   </body>
+
 </html>

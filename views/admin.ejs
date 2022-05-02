@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs'); %>
+
+    <body>
+        <%- include('./partials/nav.ejs', {active: 'admin' } ); %>
+
+            <div class="container-sm">
+                <% if (currentUser.admin) { %>
+                    <h1>You are already an administrator</h1>
+                    <% } else { %>
+                        <form method="POST" action="">
+                            <h1>
+                                Become an Admin
+                            </h1>
+
+                            <%- include('./partials/form_errors.ejs', {errors: errors}); %>
+                                <div class="form-group">
+                                    <label for="password">Enter the admin password</label>
+                                    <input id="password" value="" required name="password" type="password">
+                                </div>
+                                <button type="submit">Become an Admin</button>
+                        </form>
+                        <% } %>
+            </div>
+
+    </body>
+
+</html>

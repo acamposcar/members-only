@@ -1,0 +1,28 @@
+<header>
+    <div class="container-md header">
+        <a href="/" class="logo ">The Club</a>
+        <nav>
+            <ul class="navbar">
+                <li class="nav-link <% if (active === 'home') { %> active <% } %>">
+                    <a href="/">Home</a>
+                </li>
+                <% if (locals.currentUser) { %>
+                    <li class="nav-link <% if (active === 'admin') { %> active <% } %>">
+                        <a href="/admin">Admin</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/logout">Sign Out</a>
+                    </li>
+                    <% } else {%>
+                        <li class="nav-link <% if (active === 'login') { %> active <% } %>">
+                            <a href="/login">Sign In</a>
+                        </li>
+                        <li class="nav-link <% if (active === 'register') { %> active <% } %>">
+                            <a href="/register">Register</a>
+                        </li>
+                        <% } %>
+
+            </ul>
+        </nav>
+    </div>
+</header>

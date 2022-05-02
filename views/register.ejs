@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs'); %>
+
+    <body>
+        <%- include('./partials/nav.ejs', {active: 'register' } ); %>
+
+            <div class="container-sm">
+                <h1>
+                    Register
+                </h1>
+
+                <form method="POST" action="">
+
+
+                    <%- include('./partials/form_errors.ejs', {errors: errors}); %>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" value="" required name="name" type="text" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input id="username" value="" required name="username" type="text" autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-password">Password</label>
+                            <input id="current-password" name="password" type="password" autocomplete="current-password"
+                                required />
+                        </div>
+                        <button type="submit">Register</button>
+                </form>
+            </div>
+
+    </body>
+
+</html>

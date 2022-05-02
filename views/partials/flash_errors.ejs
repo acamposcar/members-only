@@ -1,0 +1,17 @@
+<% if(flashError && flashError.length> 0) { %>
+
+    <div class="form-errors">
+        <p>
+            <%=flashError %>
+        </p>
+    </div>
+    <% } %>
+
+        <% if(flashSuccess && flashSuccess.length> 0) { %>
+            <div class="form-success">
+                <p>
+                    <%= flashSuccess %>
+                </p>
+            </div>
+
+            <% } %>
