@@ -165,21 +165,7 @@ nav {
   text-decoration: underline;
 }
 
-@media (max-width: 500px) {
-  .header {
-    flex-direction: column;
-  }
 
-  .container-md,
-  .container-sm {
-    padding: 10px;
-  }
-
-
-  .nav-link {
-    font-size: 1.1em;
-  }
-}
 
 /* POSTS */
 
@@ -276,4 +262,25 @@ textarea {
 
 textarea:focus {
   outline: solid thin var(--primary-hover);
+}
+
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .container-md,
+  .container-sm {
+    padding: 10px;
+  }
+
+
+  .nav-link {
+    font-size: 1.1em;
+  }
+
+  .card {
+    padding: 1.2em;
+  }
 }
