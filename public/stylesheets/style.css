@@ -85,6 +85,21 @@ h1 {
   font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
 }
 */
+
+.container-md {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.container-sm {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+/* BUTTONS */
+
 button {
   border-radius: 1em;
   border: none;
@@ -104,6 +119,8 @@ button:active {
   background-color: var(--primary-active);
 }
 
+/* HEADER */
+
 header {
   background-color: white;
   border-bottom: hsl(0, 0%, 19%) 1px solid;
@@ -115,10 +132,19 @@ header {
   padding: 1.5em;
 }
 
-.header>.logo {
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.header .logo {
+  text-decoration: none;
+}
+
+.header .logo-name {
   font-size: 2em;
   font-weight: 700;
-  text-decoration: none;
   color: black;
 }
 
@@ -139,18 +165,23 @@ nav {
   text-decoration: underline;
 }
 
-.container-md {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2em;
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .container-md,
+  .container-sm {
+    padding: 10px;
+  }
+
+
+  .nav-link {
+    font-size: 1.1em;
+  }
 }
 
-.container-sm {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 2em;
-}
-
+/* POSTS */
 
 .posts {
   display: flex;
